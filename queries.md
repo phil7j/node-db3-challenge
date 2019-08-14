@@ -16,7 +16,13 @@
     where orderId = 10251
 
 ### Display the OrderID, CustomerName and the employee's LastName for every order. All columns should be labeled clearly. Displays 196 records.
-
+    SELECT o.orderId, c.CustomerName, e.lastName
+    FROM [Orders] as o
+    inner join customers as c on o.customerID = c.customerId
+    inner join employees as e on o.employeeID = e.employeeId
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
+SELECT c.categoryName, count(od.quantity)
+FROM [Categories] as c
+inner join OrderDetails as od on c.categoryId = od.categoryId
 
 ### (Stretch) Display OrderID and a  column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
